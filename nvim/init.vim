@@ -14,7 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'dag/vim-fish'
 Plug 'airblade/vim-gitgutter'
 Plug 'maximbaz/lightline-ale'
-Plug 'chriskempson/base16-vim'
+Plug 'dikiaap/minimalist'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -41,7 +41,7 @@ set inccommand=split
 syntax on
 set background=dark
 set termguicolors
-colorscheme base16-monokai
+colorscheme minimalist
 
 let mapleader="\<space>"
 nnoremap <leader>r :source ~/.config/nvim/init.vim<cr>

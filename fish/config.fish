@@ -1,8 +1,12 @@
-if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
+if not functions -q fundle
+	eval (curl -sfL https://git.io/fundle-install)
+end
 
-fundle plugin 'tuvistavie/fish-ssh-agent'
+if functions -q fundle
+	fundle plugin 'tuvistavie/fish-ssh-agent'
 
-fundle init
+	fundle init
+end
 
 if status --is-interactive
 	tmux attach ^ /dev/null; or tmux new ^ /dev/null
@@ -27,7 +31,7 @@ set PATH $PATH $HOME/.local/bin
 
 # aliases
 set -u fish_user_abbreviations $fish_user_abbreviations 'vim=nvim'
-set -u fish_user_abbreviations $fish_user_abbreviations 'sbt=env term=xterm-color sbt'
+set -u fish_user_abbreviations $fish_user_abbreviations 'sbt=env TERM=xterm-color sbt'
 
 # colors:
 set fish_color_normal f8f8f2 # the default color
