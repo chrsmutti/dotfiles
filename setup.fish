@@ -15,7 +15,7 @@ rm -f ~/.tmux.conf
 
 # link
 ln -s $DIR/nvim/init.vim ~/.config/nvim/init.vim
-ln -s $DIR/fish/cinfig.fish ~/.config/fish/config.fish
+ln -s $DIR/fish/config.fish ~/.config/fish/config.fish
 ln -s $DIR/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s $DIR/tmux.conf ~/.tmux.conf
 ln -s $DIR/nvim/site/autoload ~/.local/share/nvim/site/autoload
