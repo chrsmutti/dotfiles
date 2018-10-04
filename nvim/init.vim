@@ -28,6 +28,8 @@ Plug 'autozimu/languageclient-neovim', {
 			\ 'do': 'bash install.sh',
 			\ }
 
+Plug 'chrisbra/Colorizer'
+
 call plug#end()
 filetype plugin indent on
 
@@ -71,6 +73,19 @@ nnoremap <M-Down> :resize +5<cr>
 
 nnoremap <silent> <C-B> :call LanguageClient_textDocument_definition()<cr>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<cr>
+
+" Proper search
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
+
+" Search results centered please
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
 
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
