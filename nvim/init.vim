@@ -115,7 +115,8 @@ let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'lint
 
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-			\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
+			\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+			\ 'python': ['/usr/bin/pyls']
 			\ }
 
 
