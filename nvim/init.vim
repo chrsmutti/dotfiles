@@ -53,7 +53,7 @@ nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap <leader>f gg=g<cr>
 noremap <leader>p :read !xclip -sel clip -o<cr>
-noremap <leader>c :w !xclip -sel clip<cr><cr 
+noremap <leader>c :w !xclip -sel clip<cr><cr> 
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 nnoremap <C-R> :%s///<left><left>

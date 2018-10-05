@@ -19,3 +19,6 @@ ln -s $DIR/fish/config.fish ~/.config/fish/config.fish
 ln -s $DIR/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s $DIR/tmux.conf ~/.tmux.conf
 ln -s $DIR/nvim/site/autoload ~/.local/share/nvim/site/autoload
+
+# clones
+git clone https://github.com/chriskempson/base16-shell ~/.base16-shell
