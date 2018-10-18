@@ -6,6 +6,7 @@ if functions -q fundle
 	fundle plugin 'tuvistavie/fish-ssh-agent'
 	fundle plugin 'reitzig/sdkman-for-fish'
 	fundle plugin 'smh/base16-shell-fish'
+	fundle plugin 'oh-my-fish/theme-default'
 
 	fundle init
 end
