@@ -7,6 +7,8 @@ if functions -q fundle
 	fundle plugin 'reitzig/sdkman-for-fish'
 	fundle plugin 'smh/base16-shell-fish'
 	fundle plugin 'oh-my-fish/theme-default'
+	fundle plugin 'edc/bass'
+	fundle plugin 'FabioAntunes/fish-nvm'
 
 	fundle init
 end
