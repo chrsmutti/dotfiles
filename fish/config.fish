@@ -30,6 +30,7 @@ set -x BASE16_HOME ~/.base16-shell
 
 set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.local/bin
+set PATH $PATH $HOME/.yarn/bin
 
 # aliases
 set -u fish_user_abbreviations $fish_user_abbreviations 'vim=nvim'
