@@ -7,6 +7,7 @@ mkdir -p ~/.config/fish
 mkdir -p ~/.config/fish/functions
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.local/share/nvim/site
+mkdir -p ~/.tmux/plugins
 
 # delete files
 rm -f ~/.config/nvim/init.vim
@@ -27,3 +28,4 @@ end
 
 # clones
 git clone https://github.com/chriskempson/base16-shell ~/.base16-shell
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

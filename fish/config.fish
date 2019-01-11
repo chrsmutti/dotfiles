@@ -14,14 +14,14 @@ if functions -q fundle
 end
 
 if [ -e ~/.cargo/bin/exa ]
-	set -u fish_user_abbreviations $fish_user_abbreviations 'l=exa'
-	set -u fish_user_abbreviations $fish_user_abbreviations 'ls=exa'
-	set -u fish_user_abbreviations $fish_user_abbreviations 'll=exa -l'
-	set -u fish_user_abbreviations $fish_user_abbreviations 'lll=exa -la'
+	abbr --add l exa
+	abbr --add ls exa
+	abbr --add ll exa -l
+	abbr --add lll exa -la
 else
-	set -u fish_user_abbreviations $fish_user_abbreviations 'l=ls'
-	set -u fish_user_abbreviations $fish_user_abbreviations 'll=ls -l'
-	set -u fish_user_abbreviations $fish_user_abbreviations 'lll=ls -la'
+	abbr --add l ls
+	abbr --add ll ls -l
+	abbr --add lll ls -la
 end
 
 # envs
@@ -33,6 +33,6 @@ set PATH $PATH $HOME/.local/bin
 set PATH $PATH $HOME/.yarn/bin
 
 # aliases
-set -u fish_user_abbreviations $fish_user_abbreviations 'vim=nvim'
-set -u fish_user_abbreviations $fish_user_abbreviations 'sbt=env TERM=xterm-color sbt'
-set -u fish_user_abbreviations $fish_user_abbreviations 'ssh=env TERM=xterm-256color ssh'
+abbr --add vim nvim
+abbr --add sbt 'env TERM=xterm-color sbt'
+abbr --add ssh 'env TERM=xterm-256color ssh'
