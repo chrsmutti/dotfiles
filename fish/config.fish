@@ -24,6 +24,10 @@ else
 	abbr --add lll ls -la
 end
 
+if [ -e /usr/bin/bat ]
+	abbr --add cat bat
+end
+
 # envs
 set -x EDITOR nvim
 set -x BASE16_HOME ~/.base16-shell
