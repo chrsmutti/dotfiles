@@ -13,21 +13,6 @@ if functions -q fundle
 	fundle init
 end
 
-if [ -e ~/.cargo/bin/exa ]
-	abbr --add l exa
-	abbr --add ls exa
-	abbr --add ll exa -l
-	abbr --add lll exa -la
-else
-	abbr --add l ls
-	abbr --add ll ls -l
-	abbr --add lll ls -la
-end
-
-if [ -e /usr/bin/bat ]
-	abbr --add cat bat
-end
-
 # envs
 set -x EDITOR nvim
 set -x BASE16_HOME ~/.base16-shell
@@ -40,3 +25,18 @@ set PATH $PATH $HOME/.yarn/bin
 abbr --add vim nvim
 abbr --add sbt 'env TERM=xterm-color sbt'
 abbr --add ssh 'env TERM=xterm-256color ssh'
+
+if [ -e ~/.cargo/bin/exa ]
+	abbr --add l 'exa'
+	abbr --add ls 'exa'
+	abbr --add ll 'exa -l'
+	abbr --add lll 'exa -la'
+else
+	abbr --add l 'ls'
+	abbr --add ll 'ls -l'
+	abbr --add lll 'ls -la'
+end
+
+if [ -e /usr/bin/bat ]
+	abbr --add cat bat
+end
