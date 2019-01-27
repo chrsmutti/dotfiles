@@ -248,7 +248,7 @@ live_config_reload: true
 shell:
   program: /usr/bin/fish
   args:
-    - -C tmux attach ^ /dev/null; or tmux new ^ /dev/null
+    - -C tmux -2 attach ^ /dev/null; or tmux new ^ /dev/null
 
 # Key bindings
 #
