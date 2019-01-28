@@ -23,6 +23,8 @@ set PATH $PATH $HOME/.yarn/bin
 
 # aliases
 abbr --add vim nvim
+abbr --add ssh "env TERM=xterm-256color ssh"
+abbr --add sbt "env TERM=xterm-256color sbt"
 
 if [ -e ~/.cargo/bin/exa ]
 	abbr --add l 'exa'
