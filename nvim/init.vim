@@ -29,6 +29,7 @@ Plug 'autozimu/languageclient-neovim', {
 			\ }
 
 Plug 'chrisbra/Colorizer'
+Plug 'Arkham/vim-tango'
 
 call plug#end()
 filetype plugin indent on
@@ -43,7 +44,7 @@ set inccommand=split
 syntax on
 set background=dark
 set termguicolors
-colorscheme minimalist
+colorscheme tango
 
 let mapleader="\<space>"
 nnoremap <leader>r :source ~/.config/nvim/init.vim<cr>

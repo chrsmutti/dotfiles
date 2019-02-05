@@ -27,5 +27,5 @@ for function_file in (ls $DIR/fish/functions)
 end
 
 # clones
-git clone https://github.com/chriskempson/base16-shell ~/.base16-shell
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/sebastiencs/icons-in-terminal /tmp/icons-in-terminal
