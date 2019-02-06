@@ -24,17 +24,17 @@ function fish_prompt
 	
 		echo -n (git_branch_name)(git_ahead)
 		set_color white
-		echo -n ") "
+		echo -n ")"
 	end
 
 	if test -e package.json
 		set_color green
-		echo -n "$mfizz_nodejs ("(node -v)") "
+		echo -n " $mfizz_nodejs ("(node -v)")"
 	end
 	
 	if not test $last_status -eq 0 
 		set_color $fish_color_error
-		echo -n "[$last_status]"
+		echo -n " [$last_status]"
 	end
 
 	set_color red
