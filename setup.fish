@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-set DIR (cd (dirname (status -f)); and pwd) 
+set DIR (cd (dirname (status -f)); and pwd)
 
 # mkdirs
 mkdir -p ~/.config/nvim
@@ -23,7 +23,7 @@ ln -s $DIR/tmux.conf ~/.tmux.conf
 ln -s $DIR/nvim/site/autoload ~/.local/share/nvim/site/autoload
 
 for function_file in (ls $DIR/fish/functions)
-	ln -s $DIR/fish/functions/$function_file ~/.config/fish/functions/$function_file
+    ln -s $DIR/fish/functions/$function_file ~/.config/fish/functions/$function_file
 end
 
 # clones
