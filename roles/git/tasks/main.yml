@@ -1,0 +1,20 @@
+- name: Install git
+  pacman:
+    name: git
+    state: present
+
+- name: Check if gitconfig exists
+  stat:
+    path: "{{user_home}}/.gitconfig"
+  register: gitconfig_stat
+
+- name: Backup gitconfig
+  command: mv ~/.gitconfig ~/.gitconfig.bak
+  args:
+    creates: "{{user_home}}/.gitconfig.bak"
+  when: gitconfig_stat.stat.exists
+
+- name: Make sure gitconfig is up to date
+  template:
+    src: "gitconfig.j2"
+    dest: "{{user_home}}/.gitconfig"

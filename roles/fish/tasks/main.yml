@@ -1,0 +1,27 @@
+- name: Install fish
+  pacman:
+    name: fish
+    state: present
+
+- name: Check if config.fish already exists
+  stat:
+    path: "{{user_home}}/.config/fish/config.fish"
+  register: fish_config_stat
+
+- name: Backup config.fish if it exists
+  command: mv "{{user_home}}/.config/fish/config.fish" "{{user_home}}/.config/fish/config.fish.bak"
+  args:
+    creates: "{{user_home}}/.config/fish/config.fish.bak"
+  when: fish_config_stat.stat.exists
+
+- name: Make sure config.fish is up to date
+  copy:
+    src: "config.fish"
+    dest: "{{user_home}}/.config/fish/config.fish"
+
+- name: Copy fish functions
+  copy:
+    src: "functions/"
+    dest: "{{user_home}}/.config/fish/functions/"
+
+- import_tasks: icons-in-terminal.yml

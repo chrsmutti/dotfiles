@@ -1,0 +1,8 @@
+# // code: language=yaml
+# - Default
+user_home: "{{ '~' | expanduser }}"
+
+# - Git
+full_name: Christian Mutti
+git_email: chrsmutti@gmail.com
+clone_folder: "{{ user_home }}/Workspace"

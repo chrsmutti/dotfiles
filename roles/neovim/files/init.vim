@@ -113,13 +113,11 @@ let g:lightline.component_type = {
       \ }
 let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 
-
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
 			\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
 			\ 'python': ['/usr/bin/pyls']
 			\ }
-
 
 let g:rustfmt_command = "rustfmt"
 let g:rustfmt_autosave = 1

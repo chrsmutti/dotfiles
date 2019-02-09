@@ -1,0 +1,16 @@
+- name: "Sudo password"
+  hosts: local
+  vars_prompt:
+    - name: "ansible_sudo_pass"
+      prompt: "Sudo password"
+      private: yes
+
+- name: Setup local environment
+  hosts: local
+  roles:
+    - { role: git, tags: ["git"] }
+    - { role: package_manager, tags: ["package_manager", "bootstrap"] }
+    - { role: fish, tags: ["fish", "bootstrap"] }
+    - { role: neovim, tags: ["neovim"] }
+    - { role: tmux, tags: ["tmux"] }
+    - { role: alacritty, tags: ["alacritty"] }

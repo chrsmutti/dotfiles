@@ -1,0 +1,26 @@
+- name: Clone icons-in-terminal repo
+  git:
+    repo: "https://github.com/sebastiencs/icons-in-terminal"
+    dest: "{{ clone_folder }}/icons-in-terminal"
+
+- name: Run icons-in-terminal install.sh
+  shell: install.sh
+  args:
+    chdir: "{{ clone_folder }}/icons-in-terminal"
+    creates: "{{ user_home }}/.config/fontconfig/conf.d/30-icons.conf"
+
+- name: Check if icons.conf already exists
+  stat:
+    path: "{{ user_home }}/.config/fontconfig/conf.d/30-icons.conf"
+  register: icons_conf_stat
+
+- name: Backup icons.conf if it exists
+  command: mv "{{ user_home }}/.config/fontconfig/conf.d/30-icons.conf" "{{ user_home }}/.config/fontconfig/conf.d/30-icons.conf.bak"
+  args:
+    creates: "{{ user_home }}/.config/fontconfig/conf.d/30-icons.conf.bak"
+  when: icons_conf_stat.stat.exists
+
+- name: Make sure icons.conf is up to date
+  template:
+    src: "icons.conf"
+    dest: "{{ user_home }}/.config/fontconfig/conf.d/30-icons.conf"

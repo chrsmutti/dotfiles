@@ -39,7 +39,9 @@ if [ -e /usr/bin/bat ]
 end
 
 # source
-source ~/.local/share/icons-in-terminal/icons.fish
+if [ -e ~/.local/share/icons-in-terminal/icons.fish ]
+    source ~/.local/share/icons-in-terminal/icons.fish
+end
 
 # colors
 set normal (set_color d3d7cf normal)

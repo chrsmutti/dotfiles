@@ -1,0 +1,9 @@
+- name: Install alacritty
+  pacman:
+    name: alacritty
+    state: present
+
+- name: Make sure alacritty.yml is up to date
+  copy:
+    src: "alacritty.yml"
+    dest: "{{ user_home }}/.config/alacritty/alacritty.yml"
