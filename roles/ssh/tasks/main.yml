@@ -1,0 +1,4 @@
+- name: Make sure ssh config is up to date
+  copy:
+    src: "config"
+    dest: "{{ user_home }}/.ssh/config"

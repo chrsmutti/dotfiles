@@ -20,3 +20,9 @@ ansible-playbook -i inventory.local site.yml
   - `full_name`: Your name, which will be attached to commit messages, e.g. "Christian Mutti"
   - `git_email`: Your git email address.
 - Edit `site.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
+
+## modules
+
+Modules inside `library` dir.
+
+- [ansible-yay](https://github.com/mnussbaum/ansible-yay)

@@ -19,3 +19,8 @@
   template:
     src: "gitconfig.j2"
     dest: "{{user_home}}/.gitconfig"
+
+- name: Install gitflow
+  yay:
+    name: gitflow-avh
+    state: present
