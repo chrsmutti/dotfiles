@@ -6,3 +6,6 @@ user_home: "{{ '~' | expanduser }}"
 full_name: Christian Mutti
 git_email: chrsmutti@gmail.com
 clone_folder: "{{ user_home }}/Workspace"
+
+# - NVM
+nvm_version: "0.34.0"

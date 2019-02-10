@@ -1,14 +1,6 @@
-if not functions -q fundle
-    eval (curl -sfL https://git.io/fundle-install)
-end
-
-if functions -q fundle
-    fundle plugin 'tuvistavie/fish-ssh-agent'
-    fundle plugin 'reitzig/sdkman-for-fish'
-    fundle plugin 'edc/bass'
-    fundle plugin 'FabioAntunes/fish-nvm'
-
-    fundle init
+if not functions -q fisher
+    curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+    fish -c fisher
 end
 
 # envs

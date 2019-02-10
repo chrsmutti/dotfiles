@@ -1,0 +1,21 @@
+- stat:
+    path: "{{ user_home }}/.sdkman/bin/sdkman-init.sh"
+  register: sdkman_stat
+
+- name: Download sdkman installer
+  get_url:
+    url: "https://get.sdkman.io/"
+    dest: /tmp/sdkman-install.sh
+    mode: u+x
+  when: not sdkman_stat.stat.exists
+  register: sdkman_install_downloaded
+
+- name: Execute the sdkman-install.sh
+  shell: /tmp/sdkman-install.sh
+  when: sdkman_install_downloaded.changed
+
+- name: Remove the sdkman-install.sh
+  file:
+    path: /tmp/sdkman-install.sh
+    state: absent
+  when: sdkman_install_downloaded.changed

@@ -1,4 +1,5 @@
 - name: Install fish
+  become: true
   pacman:
     name: fish
     state: present
@@ -18,6 +19,11 @@
   copy:
     src: "config.fish"
     dest: "{{user_home}}/.config/fish/config.fish"
+
+- name: Make sure fishfile is up to date
+  copy:
+    src: "fishfile"
+    dest: "{{user_home}}/.config/fish/fishfile"
 
 - name: Copy fish functions
   copy:

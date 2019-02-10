@@ -1,0 +1,5 @@
+- name: Install bat
+  become: true
+  pacman:
+    name: bat
+    state: present

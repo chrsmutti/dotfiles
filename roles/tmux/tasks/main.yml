@@ -1,4 +1,5 @@
 - name: Install tmux
+  become: true
   pacman:
     name: tmux
     state: present
