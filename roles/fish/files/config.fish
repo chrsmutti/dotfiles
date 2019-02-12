@@ -14,6 +14,7 @@ set PATH $PATH $HOME/.yarn/bin
 abbr --add vim nvim
 abbr --add ssh "env TERM=xterm-256color ssh"
 abbr --add sbt "env TERM=xterm-color sbt"
+abbr --add scala "env TERM=xterm-color scala -Dscala.color"
 
 if [ -e ~/.cargo/bin/exa ]
     abbr --add l 'exa'
