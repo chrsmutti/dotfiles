@@ -5,7 +5,12 @@ user_home: "{{ '~' | expanduser }}"
 # - Git
 full_name: Christian Mutti
 git_email: chrsmutti@gmail.com
+work_email: christian@biggy.com.br
 clone_folder: "{{ user_home }}/Workspace"
+workspace_work: "{{ clone_folder }}/biggy"
 
 # - NVM
 nvm_version: "0.34.0"
+
+# - Terminal
+terminal_font: "Fira Mono"

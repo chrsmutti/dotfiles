@@ -22,5 +22,5 @@
 
 - name: Make sure icons.conf is up to date
   template:
-    src: "icons.conf"
+    src: "icons.conf.j2"
     dest: "{{ user_home }}/.config/fontconfig/conf.d/30-icons.conf"

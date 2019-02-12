@@ -16,14 +16,27 @@
   when: fish_config_stat.stat.exists
 
 - name: Make sure config.fish is up to date
-  copy:
-    src: "config.fish"
+  file:
+    src: "{{clone_folder}}/dotfiles/roles/fish/files/config.fish"
     dest: "{{user_home}}/.config/fish/config.fish"
+    state: link
+
+- name: Check if fishfile already exists
+  stat:
+    path: "{{user_home}}/.config/fish/fishfile"
+  register: fishfile_stat
+
+- name: Backup fishfile if it exists
+  command: mv "{{user_home}}/.config/fish/fishfile" "{{user_home}}/.config/fish/fishfile.bak"
+  args:
+    creates: "{{user_home}}/.config/fish/fishfile.bak"
+  when: fishfile_stat.stat.exists
 
 - name: Make sure fishfile is up to date
-  copy:
-    src: "fishfile"
+  file:
+    src: "{{clone_folder}}/dotfiles/roles/fish/files/fishfile"
     dest: "{{user_home}}/.config/fish/fishfile"
+    state: link
 
 - name: Copy fish functions
   copy:

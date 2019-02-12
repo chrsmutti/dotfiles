@@ -20,6 +20,7 @@ ansible-playbook -i inventory.local site.yml
   - `full_name`: Your name, which will be attached to commit messages, e.g. "Christian Mutti"
   - `git_email`: Your git email address.
 - Edit `site.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
+- If you did not chose to clone the `dotfiles` repo to `~/Workspace`, you should change the `clone_folder` var.
 
 ## modules
 
