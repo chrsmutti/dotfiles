@@ -4,6 +4,11 @@
     name: fish
     state: present
 
+- name: Make sure fish dir exists
+  file:
+    path: "{{ user_home }}/.config/fish"
+    state: directory
+
 - name: Check if config.fish already exists
   stat:
     path: "{{user_home}}/.config/fish/config.fish"
@@ -13,7 +18,7 @@
   command: mv "{{user_home}}/.config/fish/config.fish" "{{user_home}}/.config/fish/config.fish.bak"
   args:
     creates: "{{user_home}}/.config/fish/config.fish.bak"
-  when: fish_config_stat.stat.exists
+  when: fish_config_stat.stat.exists and not fish_config_stat.stat.islnk
 
 - name: Make sure config.fish is up to date
   file:
@@ -30,7 +35,7 @@
   command: mv "{{user_home}}/.config/fish/fishfile" "{{user_home}}/.config/fish/fishfile.bak"
   args:
     creates: "{{user_home}}/.config/fish/fishfile.bak"
-  when: fishfile_stat.stat.exists
+  when: fishfile_stat.stat.exists and not fishfile_stat.stat.islnk
 
 - name: Make sure fishfile is up to date
   file:

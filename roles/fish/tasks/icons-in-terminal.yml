@@ -4,7 +4,7 @@
     dest: "{{ clone_folder }}/icons-in-terminal"
 
 - name: Run icons-in-terminal install.sh
-  shell: install.sh
+  command: ./install.sh
   args:
     chdir: "{{ clone_folder }}/icons-in-terminal"
     creates: "{{ user_home }}/.config/fontconfig/conf.d/30-icons.conf"
