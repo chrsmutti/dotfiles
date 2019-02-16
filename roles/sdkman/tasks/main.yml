@@ -1,5 +1,5 @@
 - stat:
-    path: "{{ user_home }}/.sdkman/bin/sdkman-init.sh"
+    path: "{{ user_home }}/.sdkman"
   register: sdkman_stat
 
 - name: Download sdkman installer

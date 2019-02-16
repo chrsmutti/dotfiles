@@ -4,6 +4,11 @@
     name: alacritty
     state: present
 
+- name: Makes sure config directory exists
+  file:
+    path: "{{ user_home }}/.config/alacritty"
+    state: directory
+
 - name: Check if alacritty.yml already exists
   stat:
     path: "{{user_home}}/.config/alacritty/alacritty.yml"
@@ -13,7 +18,7 @@
   command: mv "{{user_home}}/.config/alacritty/alacritty.yml" "{{user_home}}/.config/alacritty/alacritty.yml.bak"
   args:
     creates: "{{user_home}}/.config/alacritty/alacritty.yml.bak"
-  when: alacritty_yml_stat.stat.exists
+  when: alacritty_yml_stat.stat.exists and not alacritty_yml_stat.stat.islnk
 
 - name: Make sure alacritty.yml is up to date
   file:
