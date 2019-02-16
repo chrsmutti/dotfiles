@@ -3,5 +3,4 @@
   name = {{ full_name }}
 
 [includeIf "gitdir:{{ workspace_work }}/"]
-  [user]
-    email = {{ work_email }}
+  path = {{ user_home }}/.work.gitconfig
