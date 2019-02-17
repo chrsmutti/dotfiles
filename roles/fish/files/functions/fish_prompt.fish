@@ -1,7 +1,5 @@
-# Defined in fish_prompt.fish @ line 1
 function fish_prompt
     set -l last_status $status
-
 
     set_color white
     echo -n (whoami)
@@ -23,7 +21,8 @@ function fish_prompt
             set_color green
         end
 
-        echo -n (git_branch_name)(git_ahead)
+        echo -n (git_branch_name)
+        echo -n (git_ahead)
         set_color white
         echo -n ")"
     end
