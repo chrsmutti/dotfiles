@@ -43,9 +43,4 @@
     dest: "{{user_home}}/.config/fish/fishfile"
     state: link
 
-- name: Copy fish functions
-  copy:
-    src: "functions/"
-    dest: "{{user_home}}/.config/fish/functions/"
-
 - import_tasks: icons-in-terminal.yml

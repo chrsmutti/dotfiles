@@ -10,6 +10,9 @@ set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.local/bin
 set PATH $PATH $HOME/.yarn/bin
 
+# no greeting
+set fish_greeting
+
 # aliases
 abbr --add vim nvim
 abbr --add ssh "env TERM=xterm-256color ssh"
