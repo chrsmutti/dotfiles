@@ -1,0 +1,31 @@
+- name: install rust by rustup
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  args:
+    warn: false
+  changed_when: false
+
+# Fish autocomplete
+- name: Fish directory
+  file:
+    path: "{{ user_home }}/.config/fish/completions"
+    state: directory
+    recurse: yes
+
+- name: Fish
+  shell: "{{ user_home }}/.cargo/bin/rustup completions fish > {{ user_home }}/.config/fish/completions/rustup.fish"
+  args:
+    creates: "{{ user_home }}/.config/fish/completions/rustup.fish"
+
+# Crates
+- name: install rust packages
+  shell: ~/.cargo/bin/rustup run stable cargo install {{ item.name }}
+  with_items: "{{ rust.crates }}"
+  args:
+    creates: "{{ user_home }}/.cargo/bin/{{ item.exec }}"
+
+- name: install rust optional packages
+  shell: ~/.cargo/bin/rustup run stable cargo install {{ item.name }}
+  with_items: "{{ rust.optional_crates }}"
+  args:
+    creates: "{{ user_home }}/.cargo/bin/{{ item.exec }}"
+  when: rust.install_optional
