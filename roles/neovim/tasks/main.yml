@@ -20,12 +20,24 @@
     path: "{{ user_home }}/.config/nvim"
     state: directory
 
+- name: Check if init.vim already exists
+  stat:
+    path: "{{ user_home }}/.config/nvim/init.vim"
+  register: initvim_stat
+
+- name: Backup init.vim if it exists
+  command: mv "{{ user_home }}/.config/nvim/init.vim" "{{ user_home }}/.config/nvim/init.vim.bak"
+  args:
+    creates: "{{ user_home }}/.config/nvim/init.vim.bak"
+  when: initvim_stat.stat.exists and not initvim_stat.stat.islnk
+
 - name: Make sure init.vim is up to date
-  copy:
-    src: "init.vim"
+  file:
+    src: "{{clone_folder}}/dotfiles/roles/neovim/files/init.vim"
     dest: "{{ user_home }}/.config/nvim/init.vim"
-  register: init_vim_copy
+    state: link
+  register: init_vim_link
 
 - name: Install plugins
   command: nvim +PlugInstall +qall
-  when: init_vim_copy.changed
+  when: init_vim_link.changed
