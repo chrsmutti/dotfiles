@@ -14,3 +14,12 @@ nvm_version: "0.34.0"
 
 # - Terminal
 terminal_font: "Fira Mono"
+
+# - Rust
+rust:
+  install_optional: false
+  crates:
+    - { name: rustfmt, exec: rustfmt }
+    - { name: exa, exec: exa }
+  optional_crates:
+    - { name: ripgrep, exec: rg }
