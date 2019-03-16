@@ -5,6 +5,7 @@
       prompt: "Sudo password"
       private: yes
   roles:
+    - { role: dependencies, tags: ["dependencies"] }
     - { role: ssh, tags: ["ssh"] }
     - { role: git, tags: ["git"] }
     - { role: fish, tags: ["fish", "bootstrap"] }
