@@ -4,6 +4,9 @@
     name: neovim
     state: present
 
+- pip:
+    name: neovim
+
 # Plugin manager
 - name: Makes sure autoload directory exists
   file:

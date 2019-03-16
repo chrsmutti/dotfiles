@@ -1,3 +1,9 @@
+- name: Install openssh
+  become: true
+  pacman:
+    name: openssh
+    state: present
+
 - name: Make sure ssh dir exists
   file:
     path: "{{ user_home }}/.ssh"

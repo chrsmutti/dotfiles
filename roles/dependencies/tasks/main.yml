@@ -1,0 +1,11 @@
+- name: Install pip
+  become: true
+  pacman:
+    name: python-pip
+    state: present
+
+- name: Install cmake
+  become: true
+  pacman:
+    name: cmake
+    state: present
