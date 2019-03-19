@@ -1,3 +1,15 @@
+- name: Install zip
+  become: true
+  pacman:
+    name: zip
+    state: present
+
+- name: Install unzip
+  become: true
+  pacman:
+    name: unzip
+    state: present
+
 - stat:
     path: "{{ user_home }}/.sdkman"
   register: sdkman_stat
