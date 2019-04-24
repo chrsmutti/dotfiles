@@ -1,4 +1,5 @@
-- stat:
+- name: Stat nvm.sh
+  stat:
     path: "{{ user_home }}/.nvm/nvm.sh"
   register: nvm_stat
 

@@ -20,3 +20,9 @@
   yay:
     name: gitflow-avh
     state: present
+
+- name: Install diff-so-fancy
+  become: true
+  pacman:
+    name: diff-so-fancy
+    state: present

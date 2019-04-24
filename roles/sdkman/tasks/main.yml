@@ -10,7 +10,8 @@
     name: unzip
     state: present
 
-- stat:
+- name: Stat .sdkman
+  stat:
     path: "{{ user_home }}/.sdkman"
   register: sdkman_stat
 

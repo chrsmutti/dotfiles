@@ -2,5 +2,8 @@
   email = {{ git_email }}
   name = {{ full_name }}
 
+[core]
+  pager = "diff-so-fancy | less --tabs=4 -RFX"
+
 [includeIf "gitdir:{{ workspace_work }}/"]
   path = {{ user_home }}/.work.gitconfig

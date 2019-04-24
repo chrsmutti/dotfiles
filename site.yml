@@ -16,3 +16,4 @@
     - { role: sdkman, tags: ["sdkman"] }
     - { role: bat, tags: ["bat"] }
     - { role: rust, tags: ["rust"] }
+    - { role: go, tags: ["go"] }

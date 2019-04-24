@@ -4,11 +4,13 @@ if not functions -q fisher
 end
 
 # envs
-set -x EDITOR nvim
+set -gx EDITOR nvim
+set -gx GOPATH $HOME/Workspace/go
 
 set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.local/bin
 set PATH $PATH $HOME/.yarn/bin
+set PATH $PATH $GOPATH/bin
 
 # no greeting
 set fish_greeting

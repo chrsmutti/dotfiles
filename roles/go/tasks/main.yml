@@ -1,0 +1,5 @@
+- name: Install go
+  become: true
+  pacman:
+    name: go
+    state: present
