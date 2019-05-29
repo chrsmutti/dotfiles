@@ -4,7 +4,7 @@
     name: neovim
     state: present
 
-- name: Install neovim python mdodule
+- name: Install neovim python module
   become: true
   pip:
     name: neovim
