@@ -5,12 +5,16 @@ end
 
 # envs
 set -gx EDITOR nvim
+
 set -gx GOPATH $HOME/Workspace/go
+set -gx GOBIN $GOPATH/bin
+set -gx GOSRC $GOPATH/src
 
 set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.local/bin
 set PATH $PATH $HOME/.yarn/bin
-set PATH $PATH $GOPATH/bin
+set PATH $PATH $HOME/.rvm/bin
+set PATH $PATH $GOBIN
 
 # no greeting
 set fish_greeting
