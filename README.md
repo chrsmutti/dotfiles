@@ -1,33 +1,24 @@
-# dotfiles ![travis](https://travis-ci.com/chrsmutti/dotfiles.svg?branch=master)
+# dotfiles
 
-My dotfiles written as Ansible roles. Sets up a full local development environment with a single command.
-**Only Arch Linux supported**
+My dotfiles with `homer` support.
 
-Based on [sloria's dotfiles](https://github.com/sloria/dotfiles).
+## Requirements
 
-## install
-
-- Install [ansible](https://wiki.archlinux.org/index.php/Ansible).
-- Clone and run ansible.
+- Install [homer](https://github.com/chrsmutti/homer#installation)
+- Clone this repository.
 
 ```bash
 git clone https://github.com/chrsmutti/dotfiles.git ~/Workspace/dotfiles
 ```
 
-- Update the following variables in `group_vars/local` (at a minimum)
-  - `full_name`: Your name, which will be attached to commit messages, e.g. "Christian Mutti"
-  - `git_email`: Your git email address.
-- Edit `site.yml` as you see fit. Remove any roles you don't use. Edit roles that you do use.
-- If you did not chose to clone the `dotfiles` repo to `~/Workspace`, you should change the `clone_folder` var.
-- For some roles you need `yay` installed.
+## Usage
 
-```
+`homer` will link all files inside the `home` directory into it's repesctive
+folders in `$HOME`.
+
+```sh
 cd ~/Workspace/dotfiles
-ansible-playbook -i inventory.local site.yml
+homer
+
+./scripts/init-vim.sh # some minor stuff for nvim to function properly.
 ```
-
-## modules
-
-Modules inside `library` dir.
-
-- [ansible-yay](https://github.com/mnussbaum/ansible-yay)
