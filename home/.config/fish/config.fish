@@ -21,6 +21,8 @@ set PATH $PATH $HOME/.yarn/bin
 set PATH $PATH $HOME/.rvm/bin
 set PATH $PATH $GOBIN
 
+set PATH $PATH $HOME/Library/Python/3.7/bin
+
 # spacefish variables
 set SPACEFISH_EXEC_TIME_SHOW false
 set SPACEFISH_PROMPT_ADD_NEWLINE false
@@ -32,12 +34,14 @@ set fish_greeting
 
 # aliases
 alias vim nvim
-alias ssh "env TERM=xterm-256color ssh"
+#alias ssh "env TERM=xterm-256color ssh"
 alias sbt "env TERM=xterm-color sbt"
 alias scala "env TERM=xterm-color scala -Dscala.color"
+alias python "python3"
 
 if [ -e ~/.local/share/hbase/bin/hbase ]
   alias start-hbase "~/.local/share/hbase/bin/start-hbase.sh"
+  alias stop-hbase "~/.local/share/hbase/bin/stop-hbase.sh"
   alias hbase "~/.local/share/hbase/bin/hbase"
 end
 
