@@ -8,29 +8,19 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'airblade/vim-gitgutter'
+Plug 'chrisbra/Colorizer'
 
 Plug 'tpope/vim-surround'
-
 Plug 'dag/vim-fish'
-Plug 'airblade/vim-gitgutter'
-Plug 'maximbaz/lightline-ale'
-Plug 'dikiaap/minimalist'
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 Plug 'w0rp/ale'
-Plug 'rust-lang/rust.vim'
-Plug 'autozimu/languageclient-neovim', {
-			\ 'branch': 'next',
-			\ 'do': 'bash install.sh',
-			\ }
+Plug 'maximbaz/lightline-ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'chrisbra/Colorizer'
-Plug 'Soares/base16.nvim'
+
 Plug 'vim-scripts/ScrollColors'
+Plug 'Soares/base16.nvim'
 
 call plug#end()
 filetype plugin indent on
@@ -73,9 +63,6 @@ nnoremap <M-Right> :vertical resize +5<cr>
 nnoremap <M-Up> :resize -5<cr>
 nnoremap <M-Down> :resize +5<cr>
 
-nnoremap <silent> <C-B> :call LanguageClient_textDocument_definition()<cr>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<cr>
-
 " Proper search
 set incsearch
 set ignorecase
@@ -89,6 +76,7 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+" ale
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_info = 'ℹ'
@@ -96,16 +84,14 @@ highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 highlight ALEInfoSign ctermbg=NONE ctermfg=blue
 
-let g:lightline = {
-			\ 'colorscheme': 'wombat',
-			\ }
+" lightline
+let g:lightline = { 'colorscheme': 'wombat' }
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
       \  'linter_warnings': 'lightline#ale#warnings',
       \  'linter_errors': 'lightline#ale#errors',
       \  'linter_ok': 'lightline#ale#ok',
       \ }
-
 let g:lightline.component_type = {
       \     'linter_checking': 'left',
       \     'linter_warnings': 'warning',
@@ -114,16 +100,6 @@ let g:lightline.component_type = {
       \ }
 let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-			\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-			\ 'python': ['/usr/bin/pyls']
-			\ }
-
-let g:rustfmt_command = "rustfmt"
-let g:rustfmt_autosave = 1
-let g:rustfmt_fail_silently = 0
-let g:rustfmt_emit_files = 1
-
+" deoplete
 let g:deoplete#enable_at_startup = 1
 
