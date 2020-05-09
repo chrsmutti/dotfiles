@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 pip3 install --user pynvim
 
 mkdir -p ~/.local/share/nvim/site/autoload

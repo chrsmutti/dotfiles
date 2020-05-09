@@ -14,6 +14,7 @@ set -gx GOPATH $HOME/Workspace/go
 set -gx GOBIN $GOPATH/bin
 set -gx GOSRC $GOPATH/src
 
+# path
 set PATH $PATH /usr/local/bin
 set PATH $PATH $HOME/.cargo/bin
 set PATH $PATH $HOME/.local/bin
@@ -23,28 +24,23 @@ set PATH $PATH $GOBIN
 
 set PATH $PATH $HOME/Library/Python/3.7/bin
 
-# spacefish variables
-set SPACEFISH_EXEC_TIME_SHOW false
-set SPACEFISH_PROMPT_ADD_NEWLINE false
-set SPACEFISH_PROMPT_SUFFIXES_SHOW true
-set SPACEFISH_CHAR_SUFFIX "  "
-
 # no greeting
 set fish_greeting
 
 # aliases
 alias vim nvim
-#alias ssh "env TERM=xterm-256color ssh"
 alias sbt "env TERM=xterm-color sbt"
 alias scala "env TERM=xterm-color scala -Dscala.color"
 alias python "python3"
 
+# hbase aliases
 if [ -e ~/.local/share/hbase/bin/hbase ]
   alias start-hbase "~/.local/share/hbase/bin/start-hbase.sh"
   alias stop-hbase "~/.local/share/hbase/bin/stop-hbase.sh"
   alias hbase "~/.local/share/hbase/bin/hbase"
 end
 
+# exa or ls aliases
 if [ -e ~/.cargo/bin/exa ]
   alias l 'exa'
   alias ls 'exa'
@@ -56,10 +52,15 @@ else
   alias lll 'ls -la'
 end
 
+# bat alias
 if [ -e /usr/local/bin/bat ]
   alias cat bat
 end
 
+# fnm init
 if [ -e /usr/local/bin/fnm ]
   fnm env --multi | source
 end
+
+# starship
+starship init fish | source
