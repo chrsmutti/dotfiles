@@ -1,5 +1,21 @@
 # Disable the newline at the start of the prompt
 add_newline = false
 
+[java]
+style = "bold dimmed red"
+
+[package]
+display_private = true
+
 [cmd_duration]
 disabled = true
+
+[custom.sbt_version]
+command = "echo '📦' 'v'(cat version.sbt | perl -n -e'/version := \"(.+)\"/ && print $1')"
+style = "bold 208"
+files = ["version.sbt"]
+
+[custom.vtex_manifest]
+command = "cat manifest.json | jq -r '.vendor + \".\" + .name + \"@\" + .version'"
+style = "bold purple"
+files = ["manifest.json"]

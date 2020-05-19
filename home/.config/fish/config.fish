@@ -1,6 +1,6 @@
 if not functions -q fisher
-  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-  fish -c fisher
+    curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+    fish -c fisher
 end
 
 # no greeting
@@ -13,6 +13,7 @@ set -gx EDITOR nvim
 set -gx GOPATH $HOME/Workspace/go
 set -gx GOBIN $GOPATH/bin
 set -gx GOSRC $GOPATH/src
+set -gx PIPENV_VENV_IN_PROJECT "enabled"
 
 # path
 set PATH $PATH /usr/local/bin
@@ -35,31 +36,37 @@ alias python "python3"
 
 # hbase aliases
 if [ -e ~/.local/share/hbase/bin/hbase ]
-  alias start-hbase "~/.local/share/hbase/bin/start-hbase.sh"
-  alias stop-hbase "~/.local/share/hbase/bin/stop-hbase.sh"
-  alias hbase "~/.local/share/hbase/bin/hbase"
+    alias start-hbase "~/.local/share/hbase/bin/start-hbase.sh"
+    alias stop-hbase "~/.local/share/hbase/bin/stop-hbase.sh"
+    alias hbase "~/.local/share/hbase/bin/hbase"
 end
 
 # exa or ls aliases
 if [ -e ~/.cargo/bin/exa ]
-  alias l 'exa'
-  alias ls 'exa'
-  alias ll 'exa -l'
-  alias lll 'exa -la'
+    alias l 'exa'
+    alias ls 'exa'
+    alias ll 'exa -l'
+    alias lll 'exa -la'
 else
-  alias l 'ls'
-  alias ll 'ls -l'
-  alias lll 'ls -la'
+    alias l 'ls'
+    alias ll 'ls -l'
+    alias lll 'ls -la'
 end
 
 # bat alias
 if [ -e /usr/local/bin/bat ]
-  alias cat bat
+    alias cat bat
 end
+
+# git aliases
+alias gaa 'git add --all; and git commit -a'
+
+# fish aliases
+alias source_fish 'source ~/.config/fish/config.fish'
 
 # fnm init
 if [ -e /usr/local/bin/fnm ]
-  fnm env --multi | source
+    fnm env --multi | source
 end
 
 # starship
