@@ -1,0 +1,16 @@
+[user]
+	email = chrsmutti@gmail.com
+	name = Christian Mutti
+
+[core]
+	excludesfile = ~/.gitignore
+    pager = delta --theme='Monokai Extended'
+
+[interactive]
+    diffFilter = delta --color-only
+
+[includeIf "gitdir:~/Workspace/biggy/"]
+	path = ~/.work.gitconfig
+
+[includeIf "gitdir:~/Workspace/vtex/"]
+	path = ~/.work.gitconfig

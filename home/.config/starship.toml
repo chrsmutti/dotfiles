@@ -17,5 +17,5 @@ files = ["version.sbt"]
 
 [custom.vtex_manifest]
 command = "cat manifest.json | jq -r '.vendor + \".\" + .name + \"@\" + .version'"
-style = "bold purple"
+style = "bold dimmed #f71963"
 files = ["manifest.json"]

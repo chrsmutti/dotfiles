@@ -41,21 +41,23 @@ if [ -e ~/.local/share/hbase/bin/hbase ]
     alias hbase "~/.local/share/hbase/bin/hbase"
 end
 
-# exa or ls aliases
+# exa aliases
 if [ -e ~/.cargo/bin/exa ]
     alias l 'exa'
     alias ls 'exa'
     alias ll 'exa -l'
     alias lll 'exa -la'
-else
-    alias l 'ls'
-    alias ll 'ls -l'
-    alias lll 'ls -la'
 end
 
 # bat alias
 if [ -e /usr/local/bin/bat ]
-    alias cat bat
+    set -gx BAT_PAGER "less -RF"
+    alias cat "bat -p" # no line numbers
+    alias catl "bat"
+end
+
+if [ -e ~/.cargo/bin/cargo ]
+    alias ca 'cargo'
 end
 
 # git aliases
