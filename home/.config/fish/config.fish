@@ -51,7 +51,7 @@ end
 
 # bat alias
 if [ -e /usr/local/bin/bat ]
-    set -gx BAT_PAGER "less -RF"
+    set -gx BAT_PAGER "less -R"
     alias cat "bat -p" # no line numbers
     alias catl "bat"
 end
