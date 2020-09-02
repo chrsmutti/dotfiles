@@ -14,6 +14,7 @@ set -gx GOPATH $HOME/Workspace/go
 set -gx GOBIN $GOPATH/bin
 set -gx GOSRC $GOPATH/src
 set -gx PIPENV_VENV_IN_PROJECT "enabled"
+set -gx COURSIER_BIN_DIR $HOME/.local/bin
 
 # path
 set PATH $PATH /usr/local/bin
@@ -33,6 +34,7 @@ alias vim nvim
 alias sbt "env TERM=xterm-color sbt"
 alias scala "env TERM=xterm-color scala -Dscala.color"
 alias python "python3"
+alias untar "tar xvzf"
 
 # hbase aliases
 if [ -e ~/.local/share/hbase/bin/hbase ]
