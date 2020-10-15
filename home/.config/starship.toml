@@ -10,6 +10,12 @@ display_private = true
 [cmd_duration]
 disabled = true
 
+[gcloud]
+disabled = true
+
+[aws]
+disabled = true
+
 [custom.sbt_version]
 command = "echo '📦' 'v'(cat version.sbt | perl -n -e'/version := \"(.+)\"/ && print $1')"
 style = "bold 208"

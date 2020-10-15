@@ -17,24 +17,28 @@ set -gx PIPENV_VENV_IN_PROJECT "enabled"
 set -gx COURSIER_BIN_DIR $HOME/.local/bin
 
 # path
-set PATH $PATH /usr/local/bin
-set PATH $PATH $HOME/.cargo/bin
-set PATH $PATH $HOME/.local/bin
-set PATH $PATH $HOME/.yarn/bin
-set PATH $PATH $HOME/.rvm/bin
-set PATH $PATH $GOBIN
-
-set PATH $PATH $HOME/Library/Python/3.7/bin
+set PATH /usr/local/bin $PATH
+set PATH $HOME/.cargo/bin $PATH
+set PATH $HOME/.local/bin $PATH
+set PATH $HOME/.yarn/bin $PATH
+set PATH $HOME/.rvm/bin $PATH
+set PATH $GOBIN $PATH
 
 # no greeting
 set fish_greeting
 
 # aliases
 alias vim nvim
-alias sbt "env TERM=xterm-color sbt"
-alias scala "env TERM=xterm-color scala -Dscala.color"
 alias python "python3"
 alias untar "tar xvzf"
+
+function sbt
+    TERM=xterm-color command sbt $argv
+end
+
+function scala
+    TERM=xterm-color command scala -Dscala.color $argv
+end
 
 # hbase aliases
 if [ -e ~/.local/share/hbase/bin/hbase ]
@@ -54,7 +58,7 @@ end
 # bat alias
 if [ -e /usr/local/bin/bat ]
     set -gx BAT_PAGER "less -R"
-    alias cat "bat -p" # no line numbers
+    alias cat "bat -p --plain" # no line numbers
     alias catl "bat"
 end
 
@@ -64,6 +68,9 @@ end
 
 # git aliases
 alias gaa 'git add --all; and git commit -a'
+alias gp 'git pull'
+alias gf 'git fetch --all --prune'
+alias gc 'git checkout'
 
 # fish aliases
 alias source_fish 'source ~/.config/fish/config.fish'
@@ -72,6 +79,9 @@ alias source_fish 'source ~/.config/fish/config.fish'
 if [ -e /usr/local/bin/fnm ]
     fnm env --multi | source
 end
+
+# pyenv init
+pyenv init - | source
 
 # starship
 starship init fish | source
