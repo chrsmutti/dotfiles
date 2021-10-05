@@ -1,0 +1,15 @@
+window:
+  padding:
+    x: 10
+    y: 10
+
+  decorations: none
+  startup_mode: Fullscreen
+
+# Font configuration
+font:
+  normal:
+    family: monospace
+    style: Regular
+
+  size: 12.0
