@@ -4,7 +4,9 @@
 
 [core]
 	excludesfile = ~/.gitignore
-    pager = delta --theme='Monokai Extended'
+    pager = delta 
+[init]    
+    defaultBranch = main
 
 [interactive]
     diffFilter = delta --color-only
