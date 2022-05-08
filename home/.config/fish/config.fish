@@ -24,8 +24,6 @@ set PATH $HOME/.yarn/bin $PATH
 set PATH $HOME/.rvm/bin $PATH
 set PATH $GOBIN $PATH
 
-set -gx JAVA_HOME (cs java-home)
-
 # no greeting
 set fish_greeting
 

@@ -38,3 +38,7 @@ nnoremap <leader>q :q<cr>
 nnoremap <leader>r :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>p :GFiles<cr>
 nnoremap <leader>f gg=G
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
