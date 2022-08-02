@@ -24,6 +24,18 @@ set PATH $HOME/.yarn/bin $PATH
 set PATH $HOME/.rvm/bin $PATH
 set PATH $GOBIN $PATH
 
+set -gx JAVA_HOME (cs java-home)
+
+set -gx DOCKER_HOST 'unix:///Users/chrs/.local/share/containers/podman/machine/podman-machine-default/podman.sock'
+
+# OpenSSL@3
+# For compilers to find openssl@3 you may need to set:
+set -gx LDFLAGS "-L/usr/local/opt/openssl@3/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/openssl@3/include"
+
+# For pkg-config to find openssl@3 you may need to set:
+set -gx PKG_CONFIG_PATH "/usr/local/opt/openssl@3/lib/pkgconfig"
+
 # no greeting
 set fish_greeting
 
@@ -59,6 +71,7 @@ end
 if [ -e /usr/local/bin/bat ]
     set -gx BAT_PAGER "less -R"
     alias cat "bat -p --plain" # no line numbers
+    alias less "bat -p" # no line numbers
     alias catl "bat"
 end
 

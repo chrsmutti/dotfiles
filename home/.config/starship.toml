@@ -1,9 +1,6 @@
 # Disable the newline at the start of the prompt
 add_newline = false
 
-[java]
-style = "bold dimmed red"
-
 [package]
 display_private = true
 
@@ -16,7 +13,20 @@ disabled = true
 [aws]
 disabled = true
 
+[docker_context]
+disabled = true
+
+# for some reason, this is really slow
+[scala]
+disabled = true
+
+# for some reason, this is really slow
+[java]
+disabled = true
+
+# for some reason, this is really slow
 [custom.sbt_version]
+disabled = true
 command = "echo '📦' 'v'(cat version.sbt | perl -n -e'/version := \"(.+)\"/ && print $1')"
 style = "bold 208"
 files = ["version.sbt"]
