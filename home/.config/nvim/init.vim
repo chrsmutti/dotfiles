@@ -2,20 +2,8 @@ set shell=/bin/bash
 set nocompatible
 filetype off
 
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'itchyny/lightline.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'chrisbra/Colorizer'
-Plug 'tpope/vim-surround'
-Plug 'dag/vim-fish'
-Plug 'gruvbox-community/gruvbox'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-call plug#end()
-
 filetype plugin indent on
 
-colorscheme gruvbox
 set background=dark
 set relativenumber
 set colorcolumn=80

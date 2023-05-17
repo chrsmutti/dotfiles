@@ -6,6 +6,12 @@ window:
   decorations: none
   startup_mode: Fullscreen
 
+shell:
+  program: /bin/bash
+  args:
+    - -c
+    - "tmux attach || tmux"
+
 # Font configuration
 font:
   normal:
