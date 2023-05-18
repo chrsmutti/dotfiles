@@ -4,7 +4,6 @@ window:
     y: 10
 
   decorations: none
-  startup_mode: Fullscreen
 
 shell:
   program: /bin/bash
