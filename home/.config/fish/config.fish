@@ -35,9 +35,13 @@ if [ -e ~/.cargo/bin/cargo ]
 end
 
 alias gaa 'git add --all; and git commit -a'
+alias gpu 'git push' 
+alias gs 'git status' 
 alias gp 'git pull'
 alias gf 'git fetch --all --prune'
 alias gc 'git checkout'
+alias git-root 'git rev-parse --show-toplevel'
+alias cd-root 'cd (git-root)'
 
 alias source_fish 'source ~/.config/fish/config.fish'
 
@@ -46,9 +50,11 @@ if [ -e (which fnm 2>&1) ]
 end
 
 if [ -e (which pyenv 2>&1) ]
-	pyenv init - | source
+	status is-login; and pyenv init --path | source
 end
 
 if [ -e (which starship 2>&1) ]
 	starship init fish | source
 end
+
+thefuck --alias | source
