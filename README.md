@@ -1,11 +1,11 @@
 # dotfiles
 
-My dotfiles with `homer` support.
+My dotfiles with `GNU Stow` support.
 
 ## Requirements
 
-- Install [homer](https://github.com/chrsmutti/homer#installation)
-- Clone this repository.
+-   Install [GNU Stow](https://www.gnu.org/software/stow/)
+-   Clone this repository.
 
 ```bash
 git clone https://github.com/chrsmutti/dotfiles.git ~/Workspace/dotfiles
@@ -13,12 +13,11 @@ git clone https://github.com/chrsmutti/dotfiles.git ~/Workspace/dotfiles
 
 ## Usage
 
-`homer` will link all files inside the `home` directory into it's repesctive
-folders in `$HOME`.
+`GNU Stow` will create symlinks for files in your home directory. The target directory for stow will be the `$HOME` directory.
 
-```sh
+Navigate to your dotfiles directory and use stow to symlink a package:
+
+```bash
 cd ~/Workspace/dotfiles
-homer
-
-./scripts/init-vim.sh # some minor stuff for nvim to function properly.
+ stow -t $HOME .
 ```
