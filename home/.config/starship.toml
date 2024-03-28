@@ -1,0 +1,15 @@
+add_newline = false
+
+[aws]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+# for some reason, this is really slow
+[scala]
+disabled = true
+
+# for some reason, this is really slow
+[java]
+disabled = true
