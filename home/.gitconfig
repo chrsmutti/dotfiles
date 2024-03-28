@@ -4,12 +4,12 @@
 
 [core]
 	excludesfile = ~/.gitignore
-    pager = delta 
+	pager = delta 
 [init]    
-    defaultBranch = main
+	defaultBranch = main
 
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [includeIf "gitdir:~/Workspace/biggy/"]
 	path = ~/.work.gitconfig

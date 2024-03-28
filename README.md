@@ -22,3 +22,4 @@ homer
 
 ./scripts/init-vim.sh # some minor stuff for nvim to function properly.
 ```
+

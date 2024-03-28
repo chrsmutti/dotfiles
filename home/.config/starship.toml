@@ -1,19 +1,9 @@
-# Disable the newline at the start of the prompt
 add_newline = false
-
-[package]
-display_private = true
-
-[cmd_duration]
-disabled = true
-
-[gcloud]
-disabled = true
 
 [aws]
 disabled = true
 
-[docker_context]
+[cmd_duration]
 disabled = true
 
 # for some reason, this is really slow
@@ -23,15 +13,3 @@ disabled = true
 # for some reason, this is really slow
 [java]
 disabled = true
-
-# for some reason, this is really slow
-[custom.sbt_version]
-disabled = true
-command = "echo '📦' 'v'(cat version.sbt | perl -n -e'/version := \"(.+)\"/ && print $1')"
-style = "bold 208"
-files = ["version.sbt"]
-
-[custom.vtex_manifest]
-command = "cat manifest.json | jq -r '.vendor + \".\" + .name + \"@\" + .version'"
-style = "bold dimmed #f71963"
-files = ["manifest.json"]
