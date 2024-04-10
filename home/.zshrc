@@ -76,8 +76,10 @@ alias ll="exa -l"
 alias cat="bat"
 alias zsh_reload="source ~/.zshrc"
 
-eval "$(starship init zsh)"
+alias gaa="git add --all; git commit -a"
+alias gc="git checkout"
 
+eval "$(starship init zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
