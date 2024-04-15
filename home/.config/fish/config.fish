@@ -8,6 +8,7 @@ fnm env | source
 
 # yarn
 fish_add_path "$HOME/.yarn/bin"
+fish_add_path "$HOME/.local/bin"
 
 # go
 set -gx GOPATH "$HOME/go"
