@@ -46,8 +46,9 @@ eval "$(zoxide init --cmd cd zsh)"
 export PATH="/Users/chrs/Library/Application Support/fnm:$PATH"
 eval "`fnm env`"
 
-# yarn
+# path
 export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # go
 export GOPATH=$HOME/go
