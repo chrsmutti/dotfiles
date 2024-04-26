@@ -1,7 +1,7 @@
 function fish_greeting
 end
 
-fish_add_path "$HOME/.cargo/env"
+fish_add_path "$HOME/.cargo/bin"
 
 # fnm (should be installed via cargo)
 fnm env | source
@@ -13,6 +13,9 @@ fish_add_path "$HOME/.local/bin"
 # go
 set -gx GOPATH "$HOME/go"
 fish_add_path "$GOPATH/bin"
+
+# homebrew
+fish_add_path "/opt/homebrew/bin"
 
 # pyenv
 set -gx PYENV_ROOT "$HOME/.pyenv"
@@ -26,6 +29,7 @@ set -gx SDKMAN_DIR "$HOME/.sdkman"
 
 # nvim
 set -gx EDITOR "nvim"
+alias vim "nvim"
 
 # zoxide
 zoxide init fish --cmd=cd | source

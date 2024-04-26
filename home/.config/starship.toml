@@ -13,3 +13,7 @@ disabled = true
 # for some reason, this is really slow
 [java]
 disabled = true
+
+[docker_context]
+disabled = true
+
