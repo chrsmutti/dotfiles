@@ -1,20 +1,19 @@
 [user]
-	email = chrsmutti@gmail.com
+	email = christian@chrs.dev
 	name = Christian Mutti
-
+	signingkey = 71813F13ED7C74A2!
 [core]
 	excludesfile = ~/.gitignore
 	pager = delta 
 [init]    
 	defaultBranch = main
-
 [interactive]
 	diffFilter = delta --color-only
-
-[includeIf "gitdir:~/Workspace/biggy/"]
-	path = ~/.work.gitconfig
-
-[includeIf "gitdir:~/Workspace/vtex/"]
-	path = ~/.work.gitconfig
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
+[includeIf "gitdir:~/Workspace/biggy/"]
+	path = ~/.work.gitconfig
+[includeIf "gitdir:~/Workspace/vtex/"]
+	path = ~/.work.gitconfig

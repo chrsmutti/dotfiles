@@ -34,6 +34,9 @@ alias vim "nvim"
 # zoxide
 zoxide init fish --cmd=cd | source
 
+# ocaml
+eval (opam env)
+
 # aliases
 alias ls "exa"
 alias ll "exa -l"

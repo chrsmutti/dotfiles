@@ -1,2 +1,5 @@
 [user]
-	email = christian.mutti@vtex.com.br
+    email = christian.mutti@vtex.com.br
+
+[commit]
+    gpgsign = false
