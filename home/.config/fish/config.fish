@@ -26,3 +26,7 @@ if status is-interactive
 
 	fnm env --use-on-cd --shell fish | source
 end
+
+# >>> coursier install directory >>>
+set -gx PATH "$PATH:/Users/chrs/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
