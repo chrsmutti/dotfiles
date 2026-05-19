@@ -33,4 +33,6 @@ Temporary Items
 # End of https://www.gitignore.io/api/macos
 
 # AI
-.claude
+.claude/settings.local.json
+.claude/settings.json
+.claude/worktrees
