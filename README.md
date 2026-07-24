@@ -1,6 +1,6 @@
 # dotfiles
 
-My dotfiles with `homer` support.
+My dotfiles with `homer` support
 
 ## Requirements
 
