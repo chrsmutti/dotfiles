@@ -102,9 +102,11 @@ function gh-repo-defaults --description "Check or apply good defaults for a GitH
 
         # Active branch rules via ruleset rules endpoint (1 call)
         # Checks for our applied rules + optional status_checks (user-configured)
+        set -l rules_err_file (mktemp)
         set -l p (gh api "repos/$repo/rules/branches/main" \
             --jq '(length > 0 | tostring), ([.[] | select(.type == "required_linear_history")] | length > 0 | tostring), ([.[] | select(.type == "non_fast_forward")] | length > 0 | tostring), ([.[] | select(.type == "deletion")] | length > 0 | tostring), ([.[] | select(.type == "required_status_checks")] | length > 0 | tostring), ([.[] | select(.type == "required_status_checks")] | if length > 0 then .[0].parameters.strict_required_status_checks_policy else false end | tostring)' \
-            2>/dev/null)
+            2>$rules_err_file)
+        set -l rules_status $status
         # p[1]=has_rules  p[2]=linear  p[3]=no_force_push  p[4]=no_delete  p[5]=status_checks  p[6]=strict
 
         echo "── Repository Settings ──────────────────────────────────"
@@ -116,14 +118,24 @@ function gh-repo-defaults --description "Check or apply good defaults for a GitH
         __grd_row "Auto-merge enabled"              $r[6]
         echo ""
         echo "── Branch Ruleset: main ─────────────────────────────────"
-        __grd_row "Branch has active rules"                    $p[1]
-        __grd_row "Require linear history"                     $p[2]
-        __grd_row "Force pushes blocked"                       $p[3]
-        __grd_row "Branch deletion blocked"                    $p[4]
-        echo ""
-        echo "  Status checks (add via Settings → Rules → Rulesets):"
-        __grd_row "Require status checks"                      $p[5]
-        __grd_row "Status checks: branch must be up-to-date"   $p[6]
+        if test $rules_status -ne 0
+            set_color yellow
+            echo "  ⚠ Could not read branch rules (repo may need GitHub Pro or to be public):"
+            set_color normal
+            for line in (cat $rules_err_file)
+                echo "    $line"
+            end
+        else
+            __grd_row "Branch has active rules"                    $p[1]
+            __grd_row "Require linear history"                     $p[2]
+            __grd_row "Force pushes blocked"                       $p[3]
+            __grd_row "Branch deletion blocked"                    $p[4]
+            echo ""
+            echo "  Status checks (add via Settings → Rules → Rulesets):"
+            __grd_row "Require status checks"                      $p[5]
+            __grd_row "Status checks: branch must be up-to-date"   $p[6]
+        end
+        rm -f $rules_err_file
 
     # ── APPLY ────────────────────────────────────────────────────────────────
     else
@@ -164,32 +176,44 @@ function gh-repo-defaults --description "Check or apply good defaults for a GitH
         set -l ruleset_body '{"name":"gh-repo-defaults","target":"branch","enforcement":"active","conditions":{"ref_name":{"include":["refs/heads/main"],"exclude":[]}},"rules":[{"type":"deletion"},{"type":"non_fast_forward"},{"type":"required_linear_history"}]}'
 
         # Look up an existing ruleset by name so we update instead of duplicating
+        set -l lookup_err_file (mktemp)
         set -l ruleset_id (gh api "repos/$repo/rulesets" \
             --jq '[.[] | select(.name == "gh-repo-defaults")] | if length > 0 then (.[0].id | tostring) else "" end' \
-            2>/dev/null)
+            2>$lookup_err_file)
+        set -l lookup_status $status
 
-        # Capture stderr for useful error messages on failure
-        set -l err_file (mktemp)
-
-        if test -n "$ruleset_id"
-            __grd_step "Update 'gh-repo-defaults' ruleset"
-            printf '%s' "$ruleset_body" | gh api "repos/$repo/rulesets/$ruleset_id" \
-                --method PUT --input - >/dev/null 2>$err_file
-        else
-            __grd_step "Create 'gh-repo-defaults' ruleset"
-            printf '%s' "$ruleset_body" | gh api "repos/$repo/rulesets" \
-                --method POST --input - >/dev/null 2>$err_file
-        end
-
-        if test $status -eq 0
-            __grd_ok
-        else
-            __grd_fail
-            for line in (cat $err_file)
+        if test $lookup_status -ne 0
+            echo "  Skipping ruleset (could not list rulesets for $repo):"
+            for line in (cat $lookup_err_file)
                 echo "    $line"
             end
+            rm -f $lookup_err_file
+        else
+            rm -f $lookup_err_file
+
+            # Capture stderr for useful error messages on failure
+            set -l err_file (mktemp)
+
+            if test -n "$ruleset_id"
+                __grd_step "Update 'gh-repo-defaults' ruleset"
+                printf '%s' "$ruleset_body" | gh api "repos/$repo/rulesets/$ruleset_id" \
+                    --method PUT --input - >/dev/null 2>$err_file
+            else
+                __grd_step "Create 'gh-repo-defaults' ruleset"
+                printf '%s' "$ruleset_body" | gh api "repos/$repo/rulesets" \
+                    --method POST --input - >/dev/null 2>$err_file
+            end
+
+            if test $status -eq 0
+                __grd_ok
+            else
+                __grd_fail
+                for line in (cat $err_file)
+                    echo "    $line"
+                end
+            end
+            rm -f $err_file
         end
-        rm -f $err_file
 
         echo ""
         set_color yellow
